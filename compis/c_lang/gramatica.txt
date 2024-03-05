@@ -1,0 +1,29 @@
+programa ::= declaracionFuncion programa | epsilon
+
+declaracionFuncion ::= tipo ID '(' listaParam ')' '{' listaInst '}'
+
+tipo ::= INT | CHAR | VOID | FLOAT
+
+listaParam ::= param ',' listaParam | param | epsilon
+
+param ::= tipo ID
+
+listaInst ::= instruccion listaInst | epsilon
+
+instruccion ::= declaracionVariable ';' | asignacion ';' | invocacionFuncion ';' | whileStmt
+
+declaracionVariable ::= tipo ID
+
+asignacion ::= ID '=' expAritmetica
+
+invocacionFuncion ::= ID '(' listaExp ')'
+
+listaExp ::= expAritmetica ',' listaExp | expAritmetica | epsilon
+
+whileStmt ::= WHILE '(' expLogica ')' '{' listaInst '}'
+
+expAritmetica ::= ID | NUM | expAritmetica '+' expAritmetica | expAritmetica '-' expAritmetica | '(' expAritmetica ')'
+
+expLogica ::= expAritmetica '>' expAritmetica | expAritmetica '<' expAritmetica | expAritmetica '=' expAritmetica | expAritmetica '!=' expAritmetica | '(' expLogica ')'
+
+epsilon ::= ""

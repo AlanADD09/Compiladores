@@ -1,0 +1,9 @@
+def funcion(a int){
+    if(a == 1){
+        print("true");
+    } else {
+        print("false");
+        sss = 32;
+    }
+    return;
+}
